@@ -48,11 +48,11 @@
           if (!localStorage.eTag || eTag !== localStorage.eTag) {
             localStorage.eTag = eTag;
             //Article.getAll(nextFunction); //TODO: pass 'nextFunction' into getAll();
-            Article.getAll(xhr.nextFunction);
+            Article.getAll(nextFunction);
           } else {
             Article.loadAll(JSON.parse(localStorage.hackerIpsum));
             // TODO: Replace the following line with 'nextFunction' and invoke it!
-            xhr.nextFunction;
+            nextFunction();
             // articleView.renderIndexPage();
           }
         }
@@ -67,7 +67,7 @@
       Article.loadAll(responseData);
       localStorage.hackerIpsum = JSON.stringify(responseData);
       // TODO: invoke nextFunction!
-      responseData.nextFunction;
+      nextFunction();
     });
   };
 
