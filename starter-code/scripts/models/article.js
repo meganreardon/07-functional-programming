@@ -95,9 +95,9 @@
       .reduce(function(a, b) {
         if (a.indexOf(b) < 0) {
           a.push(b);
-        }
-        return;
-      });
+        };
+        return a;
+      },[]);
     /* DONE: For our `reduce` that we'll chain here -- since we are trying to
         return an array, we'll need to specify an accumulator type...
         What data type should this accumulator be and where is it placed? */
@@ -111,7 +111,7 @@
       return {
         name: author,
         numWords: Article.allArticles.filter(function(curArticle) {
-          return curArtilce.Author === author;
+          return curArticle.author === author;
         })
           .map(function(article) {
             return article.body.match(/\w+/g).length;
@@ -125,5 +125,5 @@
   };
 
 
-
+  module.Article = Article;
 })(window);
