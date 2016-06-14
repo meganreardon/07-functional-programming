@@ -86,10 +86,18 @@
   /* TODO: Chain together a `map` and a `reduce` call to
             produce an array of *unique* author names. */
   Article.allAuthors = function() {
+    return Article.allArticles.map(function(article){
+      return article.author;
+    })
     //return       TODO: map our collection
       //return    TODO: return just the author names
-
-    /* TODO: For our `reduce` that we'll chain here -- since we are trying to
+      .reduce(function(a, b) {
+        if (a.indexOf(b) < 0) {
+          a.push(b);
+        }
+        return;
+      });
+    /* DONE: For our `reduce` that we'll chain here -- since we are trying to
         return an array, we'll need to specify an accumulator type...
         What data type should this accumulator be and where is it placed? */
   };
